@@ -5,24 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Predicting GDP per capita for countries using several factors</title>
-        <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/favicon.ico')}}" />
+        <title>Predicting Credit Card Approvals</title>
+        <link rel="icon" type="image/x-icon" href={{ url_for('static', filename='assets/favicon.ico') }} />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet" />
+        <link href={{ url_for('static', filename='css/styles.css') }} rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container px-4">
-                <a class="navbar-brand" href="#page-top">Country GDP predictor</a>
+                <a class="navbar-brand" href="#page-top">Credit Card Approval Classifier</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Exploration</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Machine learning</a></li>
-                        <li class="nav-item"><a class = "nav-link" href="#Conclusion">Conclusion</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#project">Project Overview</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#EDA">EDA</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#ML">Machine Learning</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Conclusion">Conclusion</a></li>
                     </ul>
                 </div>
             </div>
@@ -30,170 +29,183 @@
         <!-- Header-->
         <header class="bg-primary bg-gradient text-white">
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Predicting GDP per capita for countries using several factors</h1>
-                <p class="lead">A data science project by AI Camp students</p>
-                <a class="btn btn-lg btn-light" href="#about">See our work below</a>
+                <h1 class="fw-bolder">Predicting Credit Card Approvals from Application Data</h1>
+                <p class="lead">AI Camp Data Science Crash Course by Katherine Vo</p>
+                <a class="btn btn-lg btn-light" href="#project">View project below!</a>
             </div>
         </header>
-        <!-- About section-->
-        <section id="about">
+        <!-- Project overview section-->
+        <section id="project">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
-                        <h2>What does the project do?
-                        </h2>
-                        <p class="lead">In our dataset, there is information on population height, literacy, infant mortality, etc... that correlate with each other in interesting ways. Our goal will be to predict the wealth of nations, which will be measured in GDP per capita. Looking at same characteristics of the dataset, the GDP per capita ranges from $500 to $55,100 and has a standard deviation of $9834</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Services section-->
-        <section class="bg-light" id="services">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                    <h1 id="top-level-heading">Exploration</h1><br/>
-                    </div>
-                    <div class="col-lg-8">
-                        <h3>Exploration of data: Correlation table heatmap</h3>
-                        <p class="lead">First, we created a correlation table to see how different features correlated with the wealth of nations. Some surprising results were that the number of phones per hundred people and male height in cm were highly correlated with GDP per capita. Meanwhile, birthrate and infant mortality were highly negatively correlated</p>
-                    <iframe width="900" height="900" title="Correlation Table of Features" src="{{url_for('static', filename='all_correlation_map.html')}}"></iframe> <br>
-                    </div>
-                    <div class="col-lg-8">
-                        <h3>Exploration of data: Scatterplots</h3>
-                        <p class="lead">Scatterplots clearly demonstrate to us more positive and negative trends in our data. Most surprising to us is that as agricultural goes to zero, GDP becomes exponentially higher.</p>
-                        <iframe width="700" height="700" title="Scatterplots of features in relation to GDP" src="{{url_for('static', filename='GDP scatterplots.html')}}"></iframe> <br><br>
-                    </div>
-                    <div class="col-lg-8">
-                        <h3>Visualization of crucial features</h3>
-                        <p class="lead">We isolated the above features that we saw as most important and turned them into their own correlation table, so that we can see how these crucial features affect wealth.</p>
-                        <iframe width="800" height="800" title="Crucial Features Hetmap" src="{{url_for('static', filename='crucial_features_heatmap.html')}}"></iframe>  
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact section-->
-        <section id="contact">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h1>Machine Learning</h1></br>
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>Linear Regression: Explanation</h2>
-                        <p class="lead">First, we want to try a baseline linear regression. Linear regression assumes that all features are have a linear relation with GDP per capita, and we can fit a line of best fit to predict future values</p>
-                        <img src="{{url_for('static', filename='images/LinearExplanation.png')}}" class="page-image" />
-                    </div>
-
-                    <div class="col-lg-8">
-                        <h2>Linear Regression: Results</h2>
-                        <p class="lead">Here we have a confusion matrix with the results of the linear regression applied on our testing dataset. A confusion matrix for a classification problem tells us the number of correct and incorrect predictions for every class (for example wealthy). For example, the model may have classified 10 countries with average GDP as average and classified 2 countries with average GDP incorrectly, shown in the below confusion matrix. Linear regression performed exceptionally well on countries with average GDP.</p>
-                        <iframe width="500" height="500" title="Linear Regression Confusion Matrix" src="{{url_for('static', filename='LinearRegressionCF.html')}}"></iframe>  
-                        <p class="lead">By calculating the total correct examples over all examples classified, we get an average accuracy of around 58%. Mean absolute error, or the average difference between predicted and actual GDP per capita, was $3299</p>
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>Neural Networks: Explanation</h2>
-                        <p class="lead">Neural networks are one of the most powerful machine learning approaches for data with complicated patterns, but are more prone to overfitting to simple data.</p>
-                        <img src="{{url_for('static', filename='images/nn_explanation.png')}}" class="page-image" width="500"/>
-                    </div>
-
-                    <div class="col-lg-8">
-                        <h2>Neutral Networks: Results</h2>
-                        <p class="lead">Looking at the confusion matrix below, the neural network performed much better on wealthy and very wealthy nations.</p>
-                        <iframe width="500" height="500" title="Neural Network Confusion Matrix" src="{{url_for('static', filename='NeuralNetworkCF_matrix.html')}}"></iframe>
-                        <p class="lead">For total accuracy, the NN performed at 64.4% accuracy in classification. Mean absolute error is $2311</p>
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>K Nearest Neighbors: Explanation</h2>
-                        <p class="lead">K Nearest Neighbors looks at data points in the testing set and infers the classification based on similarity to other points of the same class in the training set.</p>
-                        <img src="{{url_for('static', filename='images/knn_explanation.jpeg')}}" class="page-image" width="500"/>
-                    </div>
-                    <div class="col-lg-8">
-                        <h2>K Nearest Neighbors: Results</h2>
-                        <p class="lead">Looking at our confusion matrix below, K Nearest Neighbors performed well on very wealthy and ver poor nations.</p>
-                        <iframe width="500" height="500" title="KNN Confusion Matrix" src="{{url_for('static', filename='KNN_CF_matrix.html')}}"></iframe>  
-                        <p class="lead">For total accuracy, the NN performed at 64.4% accuracy in classification. Mean absolute error is $2311</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="bg-light" id="Conclusion">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                    <h1 id="top-level-heading">Conclusion</h1><br/>
-                    </div>
-                    <div class="col-lg-8">
-
-                        <p class="lead">In conclusion, neural networks clearly performed the best on our dataset for predicting GDP per capita. Positively correlated features like height and phone usage along with negatively correlated features like birthrate and agriculture helped us achieve these results. </p>
-
-                        <h3>So what?</h3>
-                            
-                        <p class="lead">So what is the significance of our project? Because we know which features are most correlated with a higher GDP country, we can identify both the factors that lead to countries with higher monetary value and also predict and then invest in countries with a high likelihood of future growth. </p>
+                        <h2>Project Overview</h2>
+                        <p class="lead">In this project, we will explore credit card application data. We will be building a classification model to predict the approval
+                        of credit card applications based on the information, such as credit score and income, that the applicant provides. Our goal in this project will not only to 
+                        predict approval rates, but to possibly to discover trends and confounding variables that could potentially impact our outcome. The dataset for this project was a cleaned 
+                        version of a database from the UCI Machine Learning Repository.
+                    
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="margin-left: 80px; margin-right: 80px;" id="team">
-        <header class="bg-primary text-center py-5 mb-4">
+        <!-- Exploratory Data Analysis section-->
+        <section class="bg-light" id="EDA">
             <div class="container px-4">
-              <h1 class="fw-light text-white">Meet the Extraordinary AI Camp Team</h1>
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Exploratory Data Analysis</h2>
+                        <hr/>
+                        <p class = 'lead'> Because we don't have much information about all of the features and how they interact with one another, we will perform exploratory data analysis to understand these relationships further.
+                        </p>
+                        
+                        <h4>Correlation Heatmap of all Features</h4>
+                        <p> Firstly, I plotted a correlation heatmap to get an initial understanding of the relationship between all of our features and its correlation
+                            with the rate of approval.
+                        </p>
+                        <iframe width="900" height="900" title="Correlation Table of Features" 
+	                    src="{{ url_for('static', filename='correlation-heatmap.html')}}"></iframe> 
+                        <p> Overall, all of features had positive correlations with the rate of approval, except for Gender and ZipCode.
+                            Surprisingly, the  PriorDefault feature had the highest correlation rate with the approval rate. Initially, I hypothesized that features such as income and credit score
+                            would be the most important features that contribute to getting approved, but income was among the factors that had a lower correlation (0.18) compared to Employed (0.46) and
+                            the YearsEmployed (0.32). </p>
+
+                        <h4> Visualizing Numerical Features</h4>
+                        <p class = 'lead'> Firstly, we will take a deeper look into the distributions of our numerical features. This will aid us in cleaning and scaling our dataset, as well as choosing the 
+                            most important features to include in our maching learning models.
+                        </p>
+                        
+                        <img src = {{ url_for('static', filename='images/numerical-vars.png')}} alt = 'Numerical Features' width = 900 height = 400 />
+                        <hr/>
+                        <h4> Visualizing Categorical Features</h4>
+                        <p class = 'lead'> Now, we will create subplots to see the distributions of all the categorical variables. </p>
+                        
+                        
+                        <img src = {{ url_for('static', filename='images/categorical-vars.png')}} alt = 'Categorical Features' width = 900 height = 400/>
+                        <hr/>
+                        <p class = 'lead'> Then, we will plot countplots of each of these features in relation to the overall approval rates.</p>
+                        <i> Please note that 0 and 1 refer to rejected and approved applications, respectively.</i>
+                        <img src = {{ url_for('static', filename='images/categorical-app.png')}} alt = 'Categorical vs. Approval' width = 900 height = 300 />
+                        <hr/>
+                        <p> Because industry does not seem to have a strong impact on the approval rate, we will be excluding this from our machine learning models. This is also the case with the citizen feature. However, I think it would be important to include the ethnicity feature for our approval classification. It brings up an additional hypothesis that ethnicity could have a possible impact on the approval of credit card applications which bring up more significant questions of racial bias in the application process.
+                        </p>
+
+                        <hr/>
+                        <h4> Visualizing Binary Variables</h4>
+                        <p class = 'lead'> Next, let's take a deeper look into specifically the binary categorical variables. Below, I plotted the counts of each of these variables in relation to the overall approval rate.</p>
+                    
+                        <img src = {{ url_for('static', filename='images/binary-vars.png')}} alt = 'Binary Categorical Variables' width = 900 height = 400/> 
+                        <hr/>
+                        <p> After looking at the plots above, we can see that the PriorDefault and Employed features have a major impact on whether or not an applicant
+                            gets approved for a credit card. These will be significant factors for developing our classification models. On the other hand, we can see that features, such as Gender and Driver's License, have similar distributions
+                            whether the applicant gets rejected or approved.
+                        </p>
+                        <hr/>
+                        <h4> Approval Based on Ethicity and Gender </h4>
+                        <p class = 'lead'> Lastly, I wanted to visualize the relationship between Ethnicity, Gender, and the approval rate. One of my initial hypotheses was that there would be a significant relationship between these two features
+                            and getting approved for a credit card.</p>
+                        <img src = {{ url_for('static', filename='images/ethnicity-gender.png')}} alt = 'Ethnicity-Gender' />
+                        <hr/>
+                        <p> My hypothesis was that different socioeconomic statuses and biases would create a disproportionate impact on credit card approval. However from this dataset, there are 
+                            not enough data points that would be representative of the population, so I will not be including either of these features in my machine learning models.
+                        </p>
+                        <hr/>
+                        <h3> Correlation Heatmap of Crucial Features</h3>
+                        <p class = 'lead'> Now, that I have condensed my features, let's plot a correlation heatmap of these features before developing our models.</p> 
+                        <iframe width="900" height="900" title="Correlation Table of Crucial Features" 
+	                    src={{ url_for('static', filename='c-map2.html')}}></iframe> 
+
+                    </div>
+                </div>
             </div>
-          </header>
-          
-          <!-- Page Content -->
-          <div class="container px-4">
-            <div class="row">
-              <!-- Team Member 1 -->
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-0 shadow">
-                  <img src="{{url_for('static', filename='images/rohan_img.png')}}" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Rohan Joshi</h5>
-                    <div class="card-text text-black-50">Web Developer</div>
-                  </div>
+        </section>
+
+        <!-- ML section-->
+        <section id="ML">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Machine Learning Models</h2>
+                        <hr/>
+                        <h4> Logisitic Regression: Explanation </h4> 
+                        <p class = 'lead'> First, we will be implementing logistic regression to predict our binary outcome of whether or not an application is approved. 
+                            Logistic regression is meant to model the probability of a dependent outcome (getting approved) based on a set of independent variables (our features)
+                            using an underlying logistic function. These predicted probabilities must be transformed binary values in order make a valid prediction, which is the purpose of 
+                            our logistic or sigmoid function.  </p>
+                        <img src = {{ url_for('static', filename='images/lr-info.png')}} alt = 'LR Info' />
+                        <hr/>
+                        <h4> Logistic Regression: Results</h4>
+                        <p class = 'lead'> Below, I plotted a confusion matrix of our logisitic regression classfication model.</p>
+                        <iframe width="500" height="500" title="Confusion Matrix for LR" 
+	                    src={{ url_for('static', filename='cf-lr.html')}}></iframe> 
+                        <hr/>
+                        <p class = 'lead'> This model performed very well on this dataset with an accuracy of approximately 84%
+                            The mean absolute error was 0.162. From the confusion matrix, there was a much higher rate of false positive predictions than false negatives.</p>
+                        <hr/>
+                        <h4> k-Nearest Neighbors: Explanation</h4>
+                        <p class = 'lead'> Next, we implemented a k-Nearest Neighbors classifier. In this type of classification model, we classify our outcome based on what group the
+                            labeled input data is in. It will look at a number (k) of points that are closest to the current point (application) and use the classification of the k points to determine the outcome of the point.
+                        </p>
+
+                        <img src = {{ url_for('static', filename='images/knn-info.png')}} alt = 'knn info'/>
+                        <hr/>
+
+                        <h4> k-Nearest Neighbors: Results</h4>
+                        <p class = 'lead'> Below, I plotted a confusion matrix of our k-Nearest Neighbors classfication model.
+                            From the confusion matrix, there was a moderate amount of error with a higher amount of false negatives than false positives.
+                        </p>
+                        <iframe width="500" height="500" title="Confusion Matrix for k-nn" 
+	                    src={{ url_for('static', filename='cf-knn.html')}}></iframe> 
+                        <hr/>
+                        <p class = 'lead'> For this classification model, it had a 72.3% accuracy rate, with a mean absolute error of 0.277. </p>
+                        <hr/>
+                        <h4> Random Forests: Explanation</h4>
+                        <p class = 'lead'> Our last machine learning model that we implemented is Random Forest. In a random forest, we will implement many decision trees on different samples
+                            of our dataset. It will then take the average of all of those decision trees to give us our final prediction. Random forests produce higher accuracy rates than
+                        decision trees by themselves due to its ability to prevent overfitting and limiting bias error. </p>
+                        <img src = {{ url_for('static', filename='images/rf-info.png')}} alt = 'RF info' />
+                        <hr/>
+                        <h4> Random Forests: Results</h4>
+                        <p class = 'lead'> Below, I plotted the confusion matrix of our Random Forest model.</p>
+                        <iframe width="500" height="500" title="Confusion Matrix for RF" 
+	                    src={{ url_for('static', filename='cf-rf.html')}}></iframe> 
+                        <hr/>
+                        <p class = 'lead'> This model performed the best out of all of our ML models with an accuracy of 86.1% with
+                            a mean absolute error of 0.144. From the confusion matrix, there was a higher amount of false negatives than false positives. 
+                        </p>
+            
+                    </div>
                 </div>
-              </div>
-              <!-- Team Member 2 -->
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-0 shadow">
-                  <img src="{{url_for('static', filename='images/alex_duffy_img.png')}}" height="330" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Alex Duffy</h5>
-                    <div class="card-text text-black-50">Instructor</div>
-                  </div>
-                </div>
-              </div>
-              <!-- Team Member 3 -->
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-0 shadow">
-                  <img src="{{url_for('static', filename='images/mitchell_img.png')}}" height="350" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Mitchell Cutts</h5>
-                    <div class="card-text text-black-50">Instructor</div>
-                  </div>
-                </div>
-              </div>
-              <!-- Team Member 4 -->
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-0 shadow">
-                  <img src="{{url_for('static', filename='images/cameron_jackson_img.jfif')}}" height="250" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Cameron Jackson</h5>
-                    <div class="card-text text-black-50">Data Scientist</div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <!-- /.row -->
-          
-          </div>
+        </section>
+         <!-- Conclusion section-->
+         <section class="bg-light" id="Conclusion">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Conclusion</h2>
+                        <p class="lead"> In conclusion, our random forest classification model performed best out of all of our machine learning models. 
+                            I do believe that this method is best for this particular dataset because of its ability to limit bias error that could occur due to
+                            the small and limited dataset. It is also less prone to overfitting in comparison to logisitic regression and k-nearest neighbors.
+
+                        <h4> So what? </h4>
+                        <p class = 'lead'> This project is a great first step into understanding what features contribute most to credit card approvals. However, our models
+                            were based on a small amount of data that is most likely not representative of the entire population. Some next steps would be to collect more data 
+                            that could be more generalizable to different populations. With more research and data, this project could potentially be applied to simplyfying online
+                            credit applications to make it less prone to bias. In addition to this, it could help explain certain ambiguities towards the public 
+                            about what specific factors could aid them in increasing their chances of approval and make the whole process more accessible to a diverse population.
+                        </p>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; AI Camp 2022</p></div>
+            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -201,4 +213,3 @@
         <script src="/static/js/scripts.js"></script>
     </body>
 </html>
-2>

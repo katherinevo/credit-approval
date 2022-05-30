@@ -10,12 +10,11 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
-  --bs-purple: #6f42c1;
-  --bs-pink: #d63384;
+  --bs-purple: #a58fcf;
+  --bs-pink: #db5b9b;
   --bs-red: #dc3545;
   --bs-orange: #fd7e14;
   --bs-yellow: #ffc107;
@@ -302,10 +301,6 @@ svg {
   vertical-align: middle;
 }
 
-.page-image{
-  margin: 30; 
-}
-
 table {
   caption-side: bottom;
   border-collapse: collapse;
@@ -495,8 +490,6 @@ progress {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .display-1 {
@@ -2512,7 +2505,7 @@ textarea.form-control-lg {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 .form-check-input:checked {
-  background-color: #0d6efd;
+  background-color: #a58fcf;
   border-color: #0d6efd;
 }
 .form-check-input:checked[type=checkbox] {
